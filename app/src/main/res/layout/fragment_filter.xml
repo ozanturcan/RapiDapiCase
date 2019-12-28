@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.detail.SearchFragment">
+
+    <data>
+
+        <variable
+            name="viewState"
+            type="co.penguinLab.rapidapi.ui.filter.FilterResultFeedViewState" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/search_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bottom_navigation_background"
+            android:elevation="12dp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/sp_card_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@{viewState.errorMessage}"
+            app:visibleIf="@{viewState.shouldShowErrorMessage}" />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_below="@+id/search_toolbar"
+            android:indeterminate="true"
+            android:theme="@style/LinearProgress"
+            app:visibleIf="@{viewState.isLoading}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_toolbar"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewState"
+            type="co.penguinLab.rapidapi.ui.search.SearchResultsFeedItemViewState" />
+
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_spacing_vertical"
+        android:layout_marginTop="@dimen/card_spacing_horizontal"
+        android:layout_marginEnd="@dimen/card_spacing_vertical"
+        android:layout_marginBottom="@dimen/card_spacing_horizontal"
+        android:backgroundTint="@color/colorWhite900"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="12dp"
+        tools:cardCornerRadius="8dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_cardView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                app:imageUrl="@{viewState.getImageUrl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/circle_rose_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_8"
+                android:gravity="center"
+                android:text="@{viewState.cardName}"
+                android:textColor="@color/purple800"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_cardView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="#Title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_description"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_8"
+                android:singleLine="false"
+                android:text="@{viewState.cardOverview}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                tools:text="description" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{viewState.cardId}"
+                android:textSize="7sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_cardView"
+                app:layout_constraintStart_toStartOf="@+id/img_cardView"
+                app:layout_constraintTop_toBottomOf="@+id/img_cardView"
+                tools:text="ca" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Configs.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Configs.minSdkVersion
+        targetSdkVersion Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':model')
+
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.appcompat
+    implementation Dependencies.material
+
+    // dagger
+    implementation Dependencies.dagger
+    implementation Dependencies.daggerAndroid
+    kapt Dependencies.daggerCompiler
+    kapt Dependencies.daggerProcessor
+
+    //rxjava
+    api  Dependencies.rxAndroid
+    api  Dependencies.rxJava
+
+    //Glide
+    implementation  Dependencies.glide
+
+    implementation "androidx.core:core-ktx:1.1.0"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.1.0"
+
+
+}

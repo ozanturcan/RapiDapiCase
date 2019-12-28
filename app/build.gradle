@@ -1,0 +1,94 @@
+apply plugin: Plugins.androidApplication
+apply plugin: Plugins.kotlinAndroid
+apply plugin: Plugins.kotlinKapt
+apply plugin: Plugins.kotlinAndroidExtensions
+
+android {
+    compileSdkVersion Configs.compileSdkVersion
+
+
+    defaultConfig {
+        applicationId Configs.applicationId
+        minSdkVersion Configs.minSdkVersion
+        targetSdkVersion Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+        multiDexEnabled true
+        testInstrumentationRunner Configs.testInstrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding.enabled = true
+
+}
+
+dependencies {
+
+    implementation project(':data')
+    implementation project(':common')
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.appcompat
+    implementation Dependencies.material
+    implementation Dependencies.constraintLayout
+    implementation "androidx.core:core-ktx:1.1.0"
+
+    // dagger
+    implementation Dependencies.dagger
+    implementation Dependencies.daggerAndroid
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-plus:17.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+    kapt Dependencies.daggerCompiler
+    kapt Dependencies.daggerProcessor
+
+    // ViewModel & LiveData
+    implementation Dependencies.lifecycleExtension
+    implementation Dependencies.lifecycleViewModel
+    kapt Dependencies.lifecycleCompiler
+
+    // Retrofit & Gson.
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofitGsonConverter
+    implementation Dependencies.retrofitRxJavaAdapter
+    implementation Dependencies.okhttp
+
+    // Room db
+    implementation Dependencies.roomRuntime
+    kapt Dependencies.roomCompiler
+    implementation Dependencies.roomKtx
+    implementation Dependencies.roomRxJava
+
+    // support
+    implementation Dependencies.recyclerView
+
+    //glide
+    implementation Dependencies.glide
+    kapt Dependencies.glideCompiler
+
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.1.0"
+
+    // Testing
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.androidxTestRunner
+    androidTestImplementation Dependencies.espressoCore
+    testImplementation Dependencies.truthExt
+    testImplementation Dependencies.truth
+    testImplementation Dependencies.mockK
+    testImplementation Dependencies.coreTesting
+}
