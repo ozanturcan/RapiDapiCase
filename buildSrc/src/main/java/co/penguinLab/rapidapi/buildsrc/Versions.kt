@@ -3,7 +3,7 @@ object Versions {
     val gradleVersion = "3.4.2"
     val appcompatVersion = "1.1.0-rc01"
     val junitVersion = "4.13-beta-3"
-    val androidxTestRunnerVersion = "1.3.0-alpha01"
+    val androidxTestRunnerVersion = "1.3.0-alpha03"
     val espressoCoreVersion = "3.3.0-alpha01"
     val daggerVersion = "2.23.2"
     val lifecycleVersion = "2.2.0-alpha02"
@@ -22,5 +22,6 @@ object Versions {
     val constraintLayout = "1.1.3"
     val gradleVersionPluginVersion = "0.27.0"
     val googleServicesVersion = "4.3.3"
+    val navigation = "2.1.0"
 
 }

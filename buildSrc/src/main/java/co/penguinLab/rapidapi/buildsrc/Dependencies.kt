@@ -34,5 +34,8 @@ object Dependencies {
     val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
     val roomRxJava = "androidx.room:room-rxjava2:${Versions.roomVersion}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    val navigationRuntime = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}"
 
 }

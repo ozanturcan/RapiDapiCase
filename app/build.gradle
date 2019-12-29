@@ -42,23 +42,29 @@ dependencies {
     implementation Dependencies.material
     implementation Dependencies.constraintLayout
     implementation "androidx.core:core-ktx:1.1.0"
+    implementation 'com.google.android.gms:play-services-plus:17.0.0'
 
-    // dagger
+    // support
+    implementation Dependencies.recyclerView
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    // Dagger2
     implementation Dependencies.dagger
     implementation Dependencies.daggerAndroid
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.gms:play-services-plus:17.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     kapt Dependencies.daggerCompiler
     kapt Dependencies.daggerProcessor
+
+    // Lifecycle
+    implementation Dependencies.lifecycleExtension
+    implementation Dependencies.lifecycleViewModel
 
     // ViewModel & LiveData
     implementation Dependencies.lifecycleExtension
     implementation Dependencies.lifecycleViewModel
     kapt Dependencies.lifecycleCompiler
 
-    // Retrofit & Gson.
+    // Retrofit & Gson
     implementation Dependencies.retrofit
     implementation Dependencies.retrofitGsonConverter
     implementation Dependencies.retrofitRxJavaAdapter
@@ -70,18 +76,15 @@ dependencies {
     implementation Dependencies.roomKtx
     implementation Dependencies.roomRxJava
 
-    // support
-    implementation Dependencies.recyclerView
-
-    //glide
+    // Glide
     implementation Dependencies.glide
     kapt Dependencies.glideCompiler
 
 
     //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
-    implementation "androidx.navigation:navigation-runtime-ktx:2.1.0"
+    implementation Dependencies.navigationFragment
+    implementation Dependencies.navigationUI
+    implementation Dependencies.navigationRuntime
 
     // Testing
     testImplementation Dependencies.junit
